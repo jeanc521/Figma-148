@@ -1,32 +1,37 @@
-import { Item } from "@/components/item"
-import data from "@/constants/data"
-import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native"
+import { useEffect, useState } from 'react';
+import {  StyleSheet,  SafeAreaView, FlatList } from 'react-native';
+import { Item } from '@/components/item';
 
-export default function List(){
-    return(
-        <>
-        <View style={styles.center}>
-            <Text>lista</Text>
-        </View>
-        <SafeAreaView style={styles.container}>
-            <FlatList style={styles.back} data={data} renderItem={({item}) => (
-                <Item name={item.nome} age={item.idade} descricao={item.descricao} image={item.imagem}/>
-            )}/>
-        </SafeAreaView>
-        </>
-    )
+interface Character {
+id: string;
+ name: string;
+ status: string;
+ species: string;
+ gender: string;
+ image: string;
 }
 
-const styles = StyleSheet.create({
-    center: {
 
-    },
+const  TabTwoScreen = () => {
+  const [character, setCharacter] = useState<Character[]>([])
+  
+useEffect(() => {
+    fetch("https://rickandmortyapi.com/api/character")
+    .then(res => res.json())
+    .then(data => setCharacter(data.results))
+  },[])
 
-    container: {
+  return (
+   <SafeAreaView>
+     <FlatList data={character} renderItem={({item}) => (
+      <Item name={item.name} age={item.status} descricao={item.gender} image={item.image}/>
+     )}  
+     keyExtractor={(item) => item.id}
+     />
+   </SafeAreaView>
+  );
+}
 
-    },
 
-    back: {
 
-    }
-})      
+export default TabTwoScreen

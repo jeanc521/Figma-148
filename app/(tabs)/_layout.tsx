@@ -6,14 +6,15 @@ import { Text } from 'react-native';
 
 export function TabLayout() {
  
-
   return (
     <>
-    <Header image={require("../../assets/images/Rick.jpg")}/>
+    <Header image={require("../../assets/images/react-logo.png")}/>
     <Tabs>
       <Tabs.Screen name='index' options={{headerShown: false, tabBarIcon: () => (<Text>◀</Text>)}}></Tabs.Screen>
       <Tabs.Screen name='explore' options={{headerShown: false, tabBarIcon: () => (<Text>▶</Text>)}}></Tabs.Screen>
+   
     </Tabs>
+    
     </>
   );
 }
