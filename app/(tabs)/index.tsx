@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { StyleSheet, Text, SafeAreaView, TouchableOpacity} from 'react-native';
-import { View } from 'react-native-reanimated/lib/typescript/Animated';
+import { StyleSheet, Text, SafeAreaView, TouchableOpacity, Image} from 'react-native';
+import { View } from 'react-native';
 
 
 export default function HomeScreen() {
@@ -14,6 +14,7 @@ export default function HomeScreen() {
   return (
     <>
     <SafeAreaView>
+    <Image style={styles.images} source={require('@/assets/images/capa.jpg')} resizeMode="cover"/>
     <Text style={styles.fundo}>Rick e Morty é uma série de ficção científica animada 
     que acompanha as aventuras interdimensionais de Rick, um cientista maluco e alcoólatra.</Text>
     <TouchableOpacity  onPress={onPress}>
@@ -21,8 +22,6 @@ export default function HomeScreen() {
     </TouchableOpacity>
     </SafeAreaView>
     </>
-    
-    
   );
 }
 
@@ -38,10 +37,16 @@ const styles = StyleSheet.create({
   buttom: {
     backgroundColor: "black",
     color: "white",
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    margin: 10,
     borderRadius: 5,
-    borderWidth: 5,
-    margin: 10, 
-   
+    alignItems: "flex-end"
     
+  },
+
+  images: {
+    width: 300,
+    height: 500
   }
 });

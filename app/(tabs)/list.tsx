@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
-import {  StyleSheet,  SafeAreaView, FlatList } from 'react-native';
+import {  StyleSheet,  SafeAreaView, FlatList, TouchableOpacity,Text, View } from 'react-native';
 import { Item } from '@/components/item';
+import { ScrollView } from 'react-native';
+import { router } from 'expo-router';
+
+
 
 interface Character {
 id: string;
@@ -9,6 +13,10 @@ id: string;
  species: string;
  gender: string;
  image: string;
+}
+
+const onPress = () => {
+  router.push("/(tabs)/explore")
 }
 
 
@@ -22,16 +30,52 @@ useEffect(() => {
   },[])
 
   return (
-   <SafeAreaView>
-     <FlatList data={character} renderItem={({item}) => (
-      <Item name={item.name} age={item.status} descricao={item.gender} image={item.image}/>
+    <ScrollView>
+    <SafeAreaView>
+     <FlatList style={styles.flat} data={character} renderItem={({item}) => (
+      <Item  name={item.name} age={item.status} descricao={item.gender} image={item.image}/>
      )}  
      keyExtractor={(item) => item.id}
+    ListFooterComponent={
+      <View style={styles.footer}>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+      <Text style={styles.buttonText}>PROXIMA PAGINA</Text>
+      </TouchableOpacity>
+      </View>
+    }
      />
+   
    </SafeAreaView>
+   </ScrollView>
   );
 }
 
+const styles = StyleSheet.create({
+  flat: {
+    backgroundColor: "#7fffd4",
+    
+  },
 
+  footer: {
+    alignItems: "flex-end",
+    paddingHorizontal: 16,
+    paddingVertical: 10
+  },
+
+  button: {
+    backgroundColor: "black",
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    margin: 10,
+    borderRadius: 5,
+    alignItems: "flex-end"
+  },
+
+  buttonText: {
+    color: "white",
+    fontSize: 13,
+    fontWeight: "bold"
+  }
+})
 
 export default TabTwoScreen

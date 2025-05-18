@@ -4,7 +4,7 @@ export const Header = ({image} : {image: ImageSourcePropType}) => {
     return(
         <View style={styles.background}>
             <Text>Header</Text>
-            <Image source={image}/>
+            <Image  source={image}/>
         </View>
     )
 }
@@ -12,6 +12,11 @@ export const Header = ({image} : {image: ImageSourcePropType}) => {
 
 const styles = StyleSheet.create({
     background: {
-
+        backgroundColor: '#090909',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent:'center',
+        paddingHorizontal: 10,
+        paddingVertical: 30
     }
 })
