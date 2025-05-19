@@ -15,16 +15,22 @@ export const Item = ({name, age, descricao, image}: {name: string, age: string, 
 
 const styles = StyleSheet.create({
     list: {
-        backgroundColor: "#7fffd4",
-        display: "flex",
-        justifyContent: "center",
+         display: "flex",
+        flexDirection: "row",
         alignItems: "center",
+        justifyContent: "space-between",
+        backgroundColor: "#4168a4d4",
+        margin: 10,
+        height: 80,
+        paddingHorizontal: 10,
+        gap: 15
     },
 
     imageStyle: {
-        width: 200,
-        height: 200,
+        width: 50,
+        height: 50,
         gap: 1000,
-       
+        borderRadius: 100,
+        borderColor: "black" 
     }
 })

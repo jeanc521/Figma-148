@@ -4,14 +4,14 @@ const data = [
         "nome": "Rick",
         "idade": "70",
         "descricao": "cientista",
-        "imagem": require("@/assets/images/react-logo.png") 
+        "imagem": require("@/assets/images/Rick.jpg") 
     },
     {
         "id": "2",
         "nome": "Morty",
         "idade": "14",
         "descricao": "neto",
-        "imagem": require("@/assets/images/react-logo.png") 
+        "imagem": require("@/assets/images/morty.png") 
     },
     {
         "id": "3",
