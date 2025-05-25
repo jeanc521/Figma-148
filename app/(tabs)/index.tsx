@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     
   },
 
-  images: {
+  morty: {
     width: 300,
     height: 500
   }

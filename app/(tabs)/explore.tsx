@@ -1,6 +1,7 @@
 import {  StyleSheet, Text, View, SafeAreaView, FlatList} from 'react-native';
 import data from '@/constants/data';
 import { Item } from '@/components/item';
+import { ScrollView } from 'react-native';
 
 
 
@@ -12,6 +13,7 @@ export default function explore() {
 
   return (
    <>
+   <ScrollView>
     <View style={styles.center}>
                 <Text>Lista</Text>
             </View>
@@ -27,6 +29,7 @@ export default function explore() {
                  showsHorizontalScrollIndicator={false}
                 />
             </SafeAreaView>
+   </ScrollView>
    </>
   );
 }
@@ -44,11 +47,11 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    flex: 1,
+      flex: 1
   },
 
   back: {
-      gap: 5
+    paddingHorizontal: 20
   }
 
 });

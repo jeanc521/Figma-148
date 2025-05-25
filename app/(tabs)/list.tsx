@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import {  StyleSheet,  SafeAreaView, FlatList, TouchableOpacity,Text, View } from 'react-native';
-import { Item } from '@/components/item';
+// import { Item } from '@/components/item';
 import { ScrollView } from 'react-native';
 import { router } from 'expo-router';
+import Card from '../../components/card';
 
 
 
@@ -32,28 +33,26 @@ useEffect(() => {
   return (
     <ScrollView>
     <SafeAreaView>
-     <FlatList style={styles.flat} data={character} renderItem={({item}) => (
-      <Item  name={item.name} age={item.status} descricao={item.gender} image={item.image}/>
-     )}  
-     keyExtractor={(item) => item.id}
-    ListFooterComponent={
+     <SafeAreaView style={styles.container}>
+      {character.map(char => (
+        <Card key={char.image} character={char} />
+      ))}
       <View style={styles.footer}>
       <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={styles.buttonText}>PROXIMA PAGINA</Text>
       </TouchableOpacity>
       </View>
-    }
-     />
-   
+    
+  </SafeAreaView>
    </SafeAreaView>
    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  flat: {
+  container: {
     backgroundColor: "#7fffd4",
-    
+    gap: 15,
   },
 
   footer: {
