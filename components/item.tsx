@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        backgroundColor: "#4168a4d4",
+        backgroundColor: "#ff1493",
         margin: 10,
         height: 80,
         paddingHorizontal: 10,
